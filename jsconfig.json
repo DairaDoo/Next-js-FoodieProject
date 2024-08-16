@@ -1,3 +1,4 @@
+// aquí se configura el alias del root del proyecto.
 {
   "compilerOptions": {
     "paths": {
