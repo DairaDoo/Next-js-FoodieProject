@@ -1,8 +1,11 @@
+"use client";
+
+import { useActionState } from "react";
 import ImagePicker from "@/components/meals/image-picker";
 import classes from "./page.module.css";
-import { shareMeal } from "@/lib/actions"; // importamos el share meal que enviará la data del form.
+import { shareMeal } from "@/lib/actions";// importamos el share meal que enviará la data del form.
 import MealsFormSubmit from "@/components/meals/meals-form-submit";
-import { useActionState } from 'react';
+
 
 export default function ShareMealPage() {
 
