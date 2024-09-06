@@ -1,15 +1,14 @@
-"use client";
+'use client';
 
-import { useActionState } from "react";
-import ImagePicker from "@/components/meals/image-picker";
-import classes from "./page.module.css";
-import { shareMeal } from "@/lib/actions";// importamos el share meal que enviará la data del form.
-import MealsFormSubmit from "@/components/meals/meals-form-submit";
+import { useActionState } from 'react';
 
+import ImagePicker from '@/components/meals/image-picker';
+import classes from './page.module.css';
+import { shareMeal } from '@/lib/actions';
+import MealsFormSubmit from '@/components/meals/meals-form-submit';
 
 export default function ShareMealPage() {
-
-  const [state, formAction] = useActionState(shareMeal, {message: null});
+  const [state, formAction] = useActionState(shareMeal, { message: null });
 
   return (
     <>
@@ -22,7 +21,7 @@ export default function ShareMealPage() {
       <main className={classes.main}>
         <form className={classes.form} action={formAction}>
           <div className={classes.row}>
-            <p> 
+            <p>
               <label htmlFor="name">Your name</label>
               <input type="text" id="name" name="name" required />
             </p>
