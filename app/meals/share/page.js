@@ -1,7 +1,7 @@
+// ShareMealPage.js
 'use client';
 
 import { useActionState } from 'react';
-
 import ImagePicker from '@/components/meals/image-picker';
 import classes from './page.module.css';
 import { shareMeal } from '@/lib/actions';

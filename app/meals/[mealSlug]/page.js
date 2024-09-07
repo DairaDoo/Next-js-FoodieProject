@@ -2,22 +2,23 @@
 // aquí el something siempre representa algo
 // distinto a shares que es una ruta creada.
 
-import Link from "next/link";
 import classes from "./page.module.css";
 import Image from "next/image";
 import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
 
-export default function MealDeatilsPage({ params }) {
+export default async function MealDeatilsPage({ params }) {
   // NexJs para unas propiedades especiales a archivos especiales (page.js, error.js, etc..)
   // en este caso parametros en key-value, en este caso mealSlug es el value.
-  const meal = getMeal(params.mealSlug);
+  const meal = await getMeal(params.mealSlug);
 
   if (!meal) {
     notFound();
   }
 
-  const formattedInstructions = meal.instructions.replace(/\n/g, "<br />");
+  const formattedInstructions = meal.instructions
+    ? meal.instructions.replace(/\n/g, "<br />")
+    : "No instructions available."; // Handle undefined instructions gracefully
 
   return (
     <>
