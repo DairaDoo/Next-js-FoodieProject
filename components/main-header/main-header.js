@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import classes from "./main-header.module.css"; // importamos css como un objeto y añádimos en los classNames.
 import Image from "next/image"; // componente image perteneciente a NextJs.
@@ -6,25 +8,39 @@ import Image from "next/image"; // componente image perteneciente a NextJs.
 import logoImg from "@/assets/logo.png";
 import MainHeaderBackground from "./main-header-background";
 import NavLink from "./nav-link"; // usamos esto para no tener que renderizar esta página en el client side.
+import { useState } from "react";
 
 export default function MainHeader() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenuHandler = () => {
+    setIsMenuOpen((prevState) => !prevState);
+  };
 
   return (
     <>
-      <MainHeaderBackground />
+    <MainHeaderBackground />
       <header className={classes.header}>
         <Link className={classes.logo} href="/">
           <Image src={logoImg} alt="A plate with food on it" priority />
           NextLevel Food
         </Link>
 
-        <nav className={classes.nav}>
+        <button
+          className={classes.menuToggle}
+          onClick={toggleMenuHandler}
+          aria-label="Toggle menu"
+        >
+          &#9776;
+        </button>
+
+        <nav className={`${classes.nav} ${isMenuOpen ? classes.open : ""}`}>
           <ul>
             <li>
-                <NavLink href={'/meals'}>Browse Meals</NavLink>
+              <NavLink href="/meals">Browse Meals</NavLink>
             </li>
             <li>
-                <NavLink href={'/community'}>Foodies Community</NavLink>   
+              <NavLink href="/community">Foodies Community</NavLink>
             </li>
           </ul>
         </nav>
