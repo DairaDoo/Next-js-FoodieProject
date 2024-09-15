@@ -31,14 +31,17 @@ export default async function MealDetailsPage({ params }) {
   return (
     <>
       <header className={classes.header}>
-        <div className={classes.image}>
-          <Image
-            src={`https://dairandoo-nextjs-demo-users-image.s3.us-east-2.amazonaws.com/${meal.image}`}
-            alt={meal.title}
-            layout="fill" // Usa fill para hacer la imagen responsiva
-            objectFit="cover" // Mantiene la proporción de la imagen y cubre el área
-          />
-        </div>
+      <div className={classes.image}>
+      <Image
+        src={`https://dairandoo-nextjs-demo-users-image.s3.us-east-2.amazonaws.com/${meal.image}`}
+        alt={meal.title}
+        layout="responsive" // Cambia fill por responsive
+        width={800} // Proporciones para grandes pantallas
+        height={600} // Ajusta según la relación de aspecto deseada
+        objectFit="contain" // Mostrar la imagen completa
+      />
+    </div>
+
         <div className={classes.headerText}>
           <h1>{meal.title}</h1>
           <p className={classes.creator}>

@@ -1,164 +1,130 @@
+/* Estilos generales */
 .header {
-display: flex;
-flex-direction: row; /* Mantén la dirección de fila por defecto */
-padding: 2rem 1rem;
-gap: 3rem;
-margin: auto;
-max-width: 80rem;
+  display: flex;
+  flex-direction: row; /* Mantén la dirección de fila en PC */
+  padding: 2rem 1rem;
+  gap: 3rem;
+  margin: auto;
+  max-width: 80rem;
+  align-items: center; /* Alinea verticalmente los elementos */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  text-align: center; /* Centra el texto dentro de los elementos */
 }
 
 .image {
-position: relative;
-width: 30rem; /* Tamaño inicial en pantallas grandes */
-height: 20rem; /* Tamaño inicial en pantallas grandes */
-overflow: hidden; /* Asegura que la imagen no se desborde */
+  position: relative;
+  width: 40%; /* Ajusta el ancho para ser flexible en pantallas grandes */
+  height: auto; /* Ajusta la altura automáticamente */
+  overflow: hidden; /* Asegura que la imagen no se desborde */
 }
 
 .image img {
-object-fit: cover; /* Mantiene la imagen cubierta */
-border-radius: 8px;
-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
-width: 100%; /* Ancho completo de su contenedor */
-height: 100%; /* Altura completa de su contenedor */
+  object-fit: contain; /* Mostrar la imagen completa en pantallas grandes */
+  border-radius: 8px;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  width: 100%; /* Ancho completo del contenedor */
+  height: 100%; /* Altura completa del contenedor */
 }
 
 .headerText {
-padding: 0.5rem 1rem 0 1rem;
-color: #ddd6cb;
-max-width: 40rem;
+  padding: 0.5rem 1rem;
+  color: #ddd6cb;
+  max-width: 40rem;
+  text-align: center; /* Centra el texto dentro del contenedor */
 }
 
 .headerText h1 {
-margin: 0;
-font-size: 3.5rem;
-text-transform: uppercase;
-font-family: 'Montserrat', sans-serif;
-text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  margin: 0;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 .creator {
-font-size: 1.5rem;
-color: #cfa69b;
-font-style: italic;
+  font-size: 1.5rem;
+  color: #cfa69b;
+  font-style: italic;
 }
 
 .creator a {
-background: linear-gradient(90deg, #f9572a, #ff8a05);
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .creator a:hover,
 .creator a:active {
-background: linear-gradient(90deg, #f9572a, #ff8a05);
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-text-shadow: 0 0 18px rgba(248, 190, 42, 0.8);
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(248, 190, 42, 0.8);
 }
 
 .summary {
-font-size: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center; /* Centra el texto dentro del contenedor */
 }
 
 .instructions {
-font-size: 1.25rem;
-line-height: 1.5;
-background-color: #6e6464;
-color: #13120f;
-border-radius: 8px;
-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
-padding: 2rem;
-max-width: 60rem;
-margin: 2rem auto;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  background-color: #6e6464;
+  color: #13120f;
+  border-radius: 8px;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  max-width: 60rem;
+  margin: 2rem auto;
+  text-align: center; /* Centra el texto dentro del contenedor */
 }
 
 .loading {
-font-size: 3rem;
-text-align: center;
-color: #ddd6cb;
-font-weight: bold;
-animation: flash 1s ease-in-out infinite alternate;
+  font-size: 3rem;
+  text-align: center;
+  color: #ddd6cb;
+  font-weight: bold;
+  animation: flash 1s ease-in-out infinite alternate;
 }
 
-/* Media Queries for Responsiveness */
+/* Estilos para tablets entre 769px y 1024px */
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column; /* Cambia a columna en tablets */
+    gap: 2rem; /* Ajusta el espacio entre los elementos en tablets */
+    align-items: center; /* Alinea los elementos al centro en tablets */
+  }
+
+  .image {
+    width: 100%; /* Ancho completo en tablets */
+    height: auto; /* Ajusta la altura automáticamente en tablets */
+  }
+
+  .image img {
+    object-fit: contain; /* Mostrar la imagen completa en tablets */
+    width: 100%; /* Ancho completo del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+}
+
+/* Estilos para móviles hasta 768px */
 @media (max-width: 768px) {
-.header {
-  flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-  gap: 1rem; /* Reduce el espacio entre los elementos */
-}
+  .header {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    gap: 1rem; /* Reduce el espacio entre los elementos */
+    align-items: center; /* Alinea los elementos al centro en móviles */
+  }
 
-.image {
-  width: 100%; /* Ancho completo en móviles */
-  height: auto; /* Mantiene la proporción de la imagen en móviles */
-}
+  .image {
+    width: 100%; /* Ancho completo en móviles */
+    height: auto; /* Ajusta la altura automáticamente en móviles */
+  }
 
-.headerText {
-  max-width: 100%; /* Ancho completo en móviles */
-  padding: 1rem; /* Ajusta el padding en móviles */
-}
-
-.headerText h1 {
-  font-size: 2.5rem; /* Tamaño de fuente reducido en móviles */
-}
-
-.creator {
-  font-size: 1.25rem; /* Tamaño de fuente reducido en móviles */
-}
-
-.summary {
-  font-size: 1.25rem; /* Tamaño de fuente reducido en móviles */
-}
-
-.instructions {
-  font-size: 1rem; /* Tamaño de fuente reducido en móviles */
-  padding: 1.5rem; /* Ajusta el padding en móviles */
-  max-width: 100%; /* Ancho completo en móviles */
-}
-}
-
-@keyframes fade-slide-in-from-left {
-0% {
-  opacity: 0;
-  transform: translateX(-1rem);
-}
-100% {
-  opacity: 1;
-  transform: translateX(0);
-}
-}
-
-@keyframes fade-slide-in-from-right {
-0% {
-  opacity: 0;
-  transform: translateX(1rem);
-}
-100% {
-  opacity: 1;
-  transform: translateX(0);
-}
-}
-
-@keyframes fade-slide-in-from-bottom {
-0% {
-  opacity: 0;
-  transform: translateY(1rem);
-}
-100% {
-  opacity: 1;
-  transform: translateY(0);
-}
-}
-
-@keyframes flash {
-0% {
-  opacity: 0;
-}
-50% {
-  opacity: 1;
-}
-100% {
-  opacity: 0;
-}
+  .image img {
+    object-fit: contain; /* Mostrar la imagen completa en móviles */
+    width: 100%; /* Ancho completo del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen en móviles */
+  }
 }
